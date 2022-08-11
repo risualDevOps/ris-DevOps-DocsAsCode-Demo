@@ -5,6 +5,10 @@ weight: 3
 geekdocHidden: false
 ---
 
+# Networking
+
+Demo page
+
 ## Mesh Topology:
 
 In a mesh topology, every device is connected to another device via a particular channel. In Mesh Topology, the protocols used are AHCP (Ad Hoc Configuration Protocols), DHCP (Dynamic Host Configuration Protocol), etc.
