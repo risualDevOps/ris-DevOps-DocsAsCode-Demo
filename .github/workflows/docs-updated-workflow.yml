@@ -34,7 +34,7 @@ jobs:
       with:
         source_file: 'docs/'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
-        destination_folder: 'portal/content/docs/DemoSite/'
+        destination_folder: 'portal/content/DemoSite/'
         user_email: ${{ secrets.USER_EMAIL }}
         user_name: ${{ secrets.USER_NAME }}
         commit_message: echo "[DemoSite] Update Documentation for Site. Commit Message - $commitMsg"
