@@ -33,5 +33,5 @@ jobs:
         destination_folder: 'portal/content/DemoSite/'
         user_email: ${{ secrets.USER_EMAIL }}
         user_name: ${{ secrets.USER_NAME }}
-        commit_message: '[DemoSite Docs] Commit - ${{ github.event.head_commit.message }}'
+        commit_message: ${{format('[DemoSite Docs] Commit - {0}', github.event.head_commit.message )}}
         git_server: 'github.com'
