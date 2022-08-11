@@ -15,6 +15,10 @@ on:
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# grab commit message
+env:
+  commitMsg: ${{ github.event.head_commit.message }}
+
 # Copy the contents to the ris-DevOps-DocsPortal repo ready for publishing to code site.
 jobs:
   copy-file:
@@ -30,8 +34,8 @@ jobs:
       with:
         source_file: 'docs/'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
-        destination_folder: 'portal/content/docs/DemoSite'
-        user_email: 'hello@joetomkinson.dev'
-        user_name: 'JoeTomkinson'
-        commit_message: '[DemoSite] Update Documentation for Site.'
+        destination_folder: 'portal/content/docs/DemoSite/'
+        user_email: ${{ secrets.USER_EMAIL }}
+        user_name: ${{ secrets.USER_NAME }}
+        commit_message: echo "[DemoSite] Update Documentation for Site. Commit Message - $commitMsg"
         git_server: 'github.com'
