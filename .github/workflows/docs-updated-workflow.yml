@@ -28,10 +28,10 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_folder: 'docs'
+        source_file: 'docs'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
         destination_folder: 'portal/content/docs/DemoSiteDocumentation'
         user_email: 'hello@joetomkinson.dev'
         user_name: 'JoeTomkinson'
-        commit_msg: '[DemoSite] Update Documentation for Site.'
+        commit_message: '[DemoSite] Update Documentation for Site.'
         git_server: 'github.com'
