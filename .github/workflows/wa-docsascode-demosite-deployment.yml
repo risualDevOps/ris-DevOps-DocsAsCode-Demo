@@ -38,8 +38,10 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.wa_docsascode_demosite_FFFF }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        working-directory: site/DemoSite/
     - name: Publish Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+        working-directory: site/DemoSite/
