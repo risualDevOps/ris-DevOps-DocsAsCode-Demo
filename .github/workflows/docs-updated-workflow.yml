@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Docs CI
 
 # Controls when the workflow will run
@@ -33,6 +31,6 @@ jobs:
         source_folder: 'docs'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
         destination_folder: 'portal/content/docs'
-        user_email: 'joe.tomkinson@gmail.com'
+        user_email: 'hello@joetomkinson.dev'
         user_name: 'JoeTomkinson'
         commit_msg: '[DemoSite] Update Documentation for Site.'
