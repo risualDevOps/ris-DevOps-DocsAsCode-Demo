@@ -15,6 +15,9 @@ env:
 jobs:
   build:
     runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: site/DemoSite/
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET Core
@@ -23,7 +26,6 @@ jobs:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
-      working-directory: site/DemoSite/
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Test
