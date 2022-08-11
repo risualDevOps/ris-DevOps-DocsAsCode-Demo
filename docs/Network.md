@@ -7,7 +7,7 @@ geekdocHidden: false
 
 # Networking
 
-Demo page
+Demo page for the Demo Site Networking section.
 
 ## Mesh Topology:
 
