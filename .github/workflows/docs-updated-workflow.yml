@@ -37,5 +37,5 @@ jobs:
         destination_folder: 'portal/content/DemoSite/'
         user_email: ${{ secrets.USER_EMAIL }}
         user_name: ${{ secrets.USER_NAME }}
-        commit_message: echo "[DemoSite] Update Documentation for Site. Commit Message - $commitMsg"
+        commit_message: '[DemoSite Docs] Commit - ${{ commitMsg }}'
         git_server: 'github.com'
