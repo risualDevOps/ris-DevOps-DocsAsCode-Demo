@@ -3,6 +3,9 @@ on:
   push:
     branches:
     - main
+# Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
 env:
   AZURE_WEBAPP_NAME: wa-docsascode-demosite
   AZURE_WEBAPP_PACKAGE_PATH: .\published
@@ -13,7 +16,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
