@@ -33,6 +33,6 @@ jobs:
         source_folder: 'docs'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
         destination_folder: 'portal/content/docs'
-        user_email: 'joet@risual.com'
-        user_name: 'joet'
+        user_email: 'joe.tomkinson@gmail.com'
+        user_name: 'JoeTomkinson'
         commit_msg: '[DemoSite] Update Documentation for Site.'
