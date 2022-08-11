@@ -2,8 +2,10 @@ name: Docs CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch and only for the docs folder
-  pull_request_review:
+  # Triggers the workflow pull request merge events but only for the "main" branch and only for the docs folder
+  pull_request:
+    types:
+      - closed
     branches: [ "main" ]
     paths:
       - docs/**
@@ -14,7 +16,7 @@ on:
 # Copy the contents to the ris-DevOps-DocsPortal repo ready for publishing to code site.
 jobs:
   copy-file:
-    if: github.event.review.state == 'approved'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
