@@ -12,7 +12,7 @@ on:
   
 env:
   AZURE_WEBAPP_NAME: wa-docsascode-demosite
-  AZURE_WEBAPP_PACKAGE_PATH: .\site\DemoSite\published
+  AZURE_WEBAPP_PACKAGE_PATH: .\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: .
@@ -24,24 +24,31 @@ jobs:
         working-directory: site/DemoSite/
     steps:
     - uses: actions/checkout@v3
+    
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
+    
     - name: Restore
       run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+    
     - name: Build
       run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
+    
     - name: Test
       run: dotnet test "${{ env.WORKING_DIRECTORY }}" --no-build
+    
     - name: Publish
       run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+    
     - name: Deploy to Azure WebApp
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.wa_docsascode_demosite_FFFF }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    
     - name: Publish Artifacts
       uses: actions/upload-artifact@v1.0.0
       with:
