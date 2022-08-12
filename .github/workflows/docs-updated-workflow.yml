@@ -28,7 +28,7 @@ jobs:
       with:
         source_folder: 'docs/**'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
-        destination_folder: 'portal/content/DemoSite/'
+        destination_folder: 'portal/content'
         destination_base_branch: 'main'
         destination_head_branch: 'docs-update'
         user_email:  ${{ secrets.USER_EMAIL }}
