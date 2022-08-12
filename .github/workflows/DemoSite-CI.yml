@@ -15,13 +15,10 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: .published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
-  WORKING_DIRECTORY: .
+  WORKING_DIRECTORY: site/DemoSite/
 jobs:
   build:
     runs-on: windows-latest
-    defaults:
-      run:
-        working-directory: site/DemoSite/
     steps:
     - uses: actions/checkout@v3
     
@@ -54,4 +51,3 @@ jobs:
       with:
         name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        working-directory: site/DemoSite/
