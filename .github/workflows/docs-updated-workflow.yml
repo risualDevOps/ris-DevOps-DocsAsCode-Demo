@@ -30,6 +30,6 @@ jobs:
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
         destination_folder: 'portal/content'
         destination_base_branch: 'main'
-        destination_head_branch: 'docs-update'
+        destination_head_branch: ${{ format('docs-update - {0}', github.event.repository.updated_at) }}
         user_email:  ${{ secrets.USER_EMAIL }}
         user_name:  ${{ secrets.USER_NAME }}
