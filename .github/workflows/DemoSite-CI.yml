@@ -1,16 +1,18 @@
-name: Build and deploy .NET Core application to Web App wa-docsascode-demosite
+name: Build and deploy DemoSite
+
 on:
   push:
     branches:
     - main
     paths:
       - site/**
+      
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   
 env:
   AZURE_WEBAPP_NAME: wa-docsascode-demosite
-  AZURE_WEBAPP_PACKAGE_PATH: .\published
+  AZURE_WEBAPP_PACKAGE_PATH: .\site\DemoSite\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
   WORKING_DIRECTORY: .
