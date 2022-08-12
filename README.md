@@ -7,3 +7,5 @@ Documentation Status:
 DemoSite Deployment Status:
 <br/>
 [![Build and deploy DemoSite](https://github.com/risualDevOps/ris-DevOps-DocsAsCode-Demo/actions/workflows/DemoSite-CI.yml/badge.svg)](https://github.com/risualDevOps/ris-DevOps-DocsAsCode-Demo/actions/workflows/DemoSite-CI.yml)
+<br/><br/>
+https://wa-docsascode-demosite.azurewebsites.net/
