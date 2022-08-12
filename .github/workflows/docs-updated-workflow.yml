@@ -2,12 +2,10 @@ name: Docs CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch and only for the docs folder
-  push:
-    branches: [ "main" ]
-    paths:
-      - docs/**
+  # Triggers the workflow pull request merge events but only for the "main" branch and only for the docs folder
   pull_request:
+    types:
+      - closed
     branches: [ "main" ]
     paths:
       - docs/**
@@ -17,21 +15,21 @@ on:
 
 # Copy the contents to the ris-DevOps-DocsPortal repo ready for publishing to code site.
 jobs:
-  copy-file:
+  pull-request:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Push docs folder
-      uses: dmnemec/copy_file_to_another_repo_action@main
+    - name: Create pull request
+      uses: paygoc6/action-pull-request-another-repo@v1.0.1
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source_file: 'docs/'
+        source_folder: 'docs/'
         destination_repo: 'risualDevOps/ris-DevOps-DocsPortal'
         destination_folder: 'portal/content/DemoSite/'
-        user_email: ${{ secrets.USER_EMAIL }}
-        user_name: ${{ secrets.USER_NAME }}
-        commit_message: ${{format('[DemoSite Docs] Commit - {0}', github.event.head_commit.message )}}
-        git_server: 'github.com'
+        destination_base_branch: 'main'
+        destination_head_branch: 'docs-update'
+        user_email:  ${{ secrets.USER_EMAIL }}
+        user_name:  ${{ secrets.USER_NAME }}
